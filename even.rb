@@ -1,18 +1,11 @@
 def even(number)
-
-
   if number%2 == 0
-  puts  "even"
+    puts  "even"
   else
-  puts  "odd"
+    puts  "odd"
   end
-
-
 end
-
-
 number = 0
-
 while number != 'q' do
   puts "enter your number: (or type 'q' to exit)"
   number = gets.chomp
