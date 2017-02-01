@@ -9,6 +9,22 @@ class Account
     @balance = balance
   end
 
+  def withdraw(amount)
+    if amount <= balance
+      balance -= amount
+    else
+      "You do not have sufficent balance."
+    end
+  end
+
+  def deposit
+    amount = gets.chomp
+    balance += amount
+  end
+
+  def show_balance
+    puts balance
+  end
 
 
 end
