@@ -1,0 +1,13 @@
+---
+- name: Tan Ah Kong
+  ac_number: 123456
+  ac_creation_date: 12/11/2016
+  balance: 250000
+- name: Tan Ah Wong
+  ac_number: 345789
+  ac_creation_date: 15/9/2015
+  balance: 350000
+- name: I am rich
+  ac_number: 888999
+  ac_creation_date: 13/1/2013
+  balance: 500000000

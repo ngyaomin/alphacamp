@@ -1,7 +1,12 @@
 load 'account.rb'
+
+
+
 class Interface
+  attr_accessor :account
 
   def initialize
+    @account = Account.new("yao min", "509384", 2017, 500000)
     show_menu
   end
 
@@ -13,18 +18,19 @@ class Interface
 
       puts "How much would you like to withdraw?"
       amount = gets.chomp.to_i
-      Account.withdraw(amount)
+      @account.withdraw(amount)
 
     elsif input == '2'
 
       puts "How much would you like to deposit?"
       amount = gets.chomp.to_i
-      deposit(amount)
+      @account.deposit(amount)
 
     elsif input == '3'
-      show_balance
+      @account.show_balance
     elsif input == '4'
 
+#create account
       puts "please enter your name"
       name = gets.chomp
       puts "enter an account number"
@@ -32,6 +38,9 @@ class Interface
       ac_creation_date = Time.now.strftime("%d/%m/%Y")
       puts "enter opening balance"
       balance = gets.chomp.to_i
+
+      create_account(name, ac_number, ac_creation_date, balance)
+
       puts "You have succesfully created an account."
 
     elsif input == 'q'

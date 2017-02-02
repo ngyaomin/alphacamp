@@ -1,7 +1,11 @@
+load 'account.rb'
 load 'interface.rb'
+require 'yaml'
 
-yao_min = Account.new("yao min", "509384", 2017, 500000)
-
-print "Yao Min account number #{yao_min.ac_number}"
+parsed = begin
+  YAML.load(File.open("/Finance Manager/data.yml"))
+rescue ArgumentError => e
+  puts "Could not parse YAML: #{e.message}"
+end
 
 Interface.new()
