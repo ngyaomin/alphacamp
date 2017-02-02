@@ -4,8 +4,7 @@ class Interface
   attr_accessor :account
 
   def initialize
-    puts "Key in your account number to log in:
-    \n if you are a new user, press 0 to create an account."
+    puts "Key in your account number to log in, or enter 0 to create a new account."
     account_number = gets.chomp
     if account_number == "0"
       puts "Please enter your name"
@@ -29,11 +28,11 @@ class Interface
   end
 
   def show_menu
-    puts "Key in 1 to withdraw
-    \n 2 to deposit
-    \n 3 to check balance
-    \n 4 to create account
-    \n and q to quit."
+    puts "***** 1 to withdraw
+    \n***** 2 to deposit
+    \n***** 3 to check balance
+    \n***** 4 to create account
+    \n***** q to quit."
     input = gets.chomp
     if input == '1'
       puts "How much would you like to withdraw?"
@@ -50,20 +49,20 @@ class Interface
       @account.show_balance
     elsif input == '4'
       #create account
-      puts "Please enter your name"
+      puts "Please enter your name:"
       name = gets.chomp
 
-      puts "Enter an account number"
+      puts "Enter an account number:"
       ac_number = gets.chomp
 
       ac_creation_date = Time.now.strftime("%d/%m/%Y")
-      puts "Enter opening balance"
+      puts "Enter opening balance:"
       balance = gets.chomp.to_i
 
       @account = Account.new(name, ac_number, ac_creation_date, balance)
       @account.save
 
-      puts "You have succesfully created an account."
+      puts "You have succesfully created an account on #{Time.now.strftime("%d/%m/%Y")}"
     elsif input == 'q'
       "Thank you for using our system."
     else

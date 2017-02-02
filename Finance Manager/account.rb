@@ -23,7 +23,7 @@ class Account
        @balance -= amount
        puts "You have #{@balance} left in your account."
     else
-        puts "You do not have sufficent balance."
+       puts "You do not have sufficent balance."
     end
   end
 
@@ -40,10 +40,10 @@ class Account
     File.open("data.yml", "w"){
       |f|
       f.write(@@all_accounts.to_yaml)
-    }  # self here means this specific account
+    }  #.self here means this specific account
   end
 
-  # here self means to make this a class mathod.
+  # here .self means to make this a class method.
   # @account = Account.load(12345)
   def self.load_account(account_number)
     # you can read from the yml and load the data properties into this account
