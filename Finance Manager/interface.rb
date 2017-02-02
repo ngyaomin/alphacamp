@@ -4,10 +4,28 @@ class Interface
   attr_accessor :account
 
   def initialize
-    puts "Key in your account number: "
+    puts "Key in your account number to log in:
+    \n if you are a new user, press 0 to create an account."
     account_number = gets.chomp
-    @account = Account.load_account(account_number)
-    show_menu
+    if account_number == "0"
+      puts "Please enter your name"
+      name = gets.chomp
+
+      puts "Enter an account number"
+      ac_number = gets.chomp
+
+      ac_creation_date = Time.now.strftime("%d/%m/%Y")
+      puts "Enter opening balance"
+      balance = gets.chomp.to_i
+
+      @account = Account.new(name, ac_number, ac_creation_date, balance)
+      @account.save
+
+      puts "You have succesfully created an account."
+    else
+      @account = Account.load_account(account_number)
+      show_menu
+    end
   end
 
   def show_menu
@@ -18,13 +36,11 @@ class Interface
     \n and q to quit."
     input = gets.chomp
     if input == '1'
-      # you would need to select account
       puts "How much would you like to withdraw?"
       amount = gets.chomp.to_i
       @account.withdraw(amount)
       @account.save
     elsif input == '2'
-      # before you deposit you need to select account
       puts "How much would you like to deposit?"
       amount = gets.chomp.to_i
       @account.deposit(amount)
@@ -34,23 +50,24 @@ class Interface
       @account.show_balance
     elsif input == '4'
       #create account
-      puts "please enter your name"
+      puts "Please enter your name"
       name = gets.chomp
-      puts "enter an account number"
+
+      puts "Enter an account number"
       ac_number = gets.chomp
+
       ac_creation_date = Time.now.strftime("%d/%m/%Y")
-      puts "enter opening balance"
+      puts "Enter opening balance"
       balance = gets.chomp.to_i
+
       @account = Account.new(name, ac_number, ac_creation_date, balance)
       @account.save
 
       puts "You have succesfully created an account."
-
-
     elsif input == 'q'
-      "Thank you for using our system"
+      "Thank you for using our system."
     else
-      puts "You have entered an invalid choice, please try again"
+      puts "You have entered an invalid choice, please try again."
     end
   end
 end

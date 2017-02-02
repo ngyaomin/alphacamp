@@ -19,3 +19,18 @@
   ac_number: '123'
   ac_creation_date: 02/02/2017
   balance: 909090
+- !ruby/object:Account
+  name: Ming Lun
+  ac_number: '039248039'
+  ac_creation_date: 02/02/2017
+  balance: 3094720348023958
+- !ruby/object:Account
+  name: isdmflsdfn
+  ac_number: '3394583094'
+  ac_creation_date: 02/02/2017
+  balance: 9405830945
+- !ruby/object:Account
+  name: dsjkfhsd
+  ac_number: '120948710'
+  ac_creation_date: 02/02/2017
+  balance: 10289473
