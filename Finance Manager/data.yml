@@ -1,13 +1,21 @@
 ---
-- name: Tan Ah Kong
-  ac_number: 123456
-  ac_creation_date: 12/11/2016
-  balance: 250000
-- name: Tan Ah Wong
-  ac_number: 345789
-  ac_creation_date: 15/9/2015
-  balance: 350000
-- name: I am rich
-  ac_number: 888999
-  ac_creation_date: 13/1/2013
-  balance: 500000000
+- !ruby/object:Account
+  name: Ng Yao Mgfbfgb
+  ac_number: '23212131'
+  ac_creation_date: 02/02/2017
+  balance: 500000
+- !ruby/object:Account
+  name: ewrewrewrewrew
+  ac_number: '3454676543'
+  ac_creation_date: 02/02/2017
+  balance: 57675432
+- !ruby/object:Account
+  name: sadasdasd
+  ac_number: '1234'
+  ac_creation_date: 02/02/2017
+  balance: 12334
+- !ruby/object:Account
+  name: kjsdhfsjhdf
+  ac_number: '123'
+  ac_creation_date: 02/02/2017
+  balance: 909090

@@ -1,12 +1,20 @@
+require_relative 'account.rb'
+require 'yaml'
 class Account
   attr_accessor :balance
   attr_reader :name, :ac_number, :ac_creation_date
+
+  @@all_accounts = YAML.load(File.read('data.yml'))
 
   def initialize(name, ac_number, ac_creation_date, balance)
     @name = name
     @ac_number = ac_number
     @ac_creation_date = ac_creation_date
     @balance = balance
+    @@all_accounts << self
+    # self here would represent this particular account
+    # << : add the right hand value into left hand colection/list
+    # used in arrays, sets etc
   end
 
   def withdraw(amount)
@@ -26,10 +34,19 @@ class Account
     puts @balance
   end
 
-def create_account(name, ac_number, ac_creation_date, balance)
-  data = {"name" => name, "ac_number" => ac_number, "ac_creation_date" => ac_creation_date, "balance" => balance}
-  File.open("path/to/output.yml", "w") {|f| f.write(data.to_yaml) }
-end
+  def save
+    File.open("data.yml", "w") {
+      |f|
+      f.write(@@all_accounts.to_yaml)
+    }  # self here means this specific account
+  end
 
-
+  # here self means to make this a class mathod.
+  # @account = Account.load(12345)
+  def load_account(account_number)
+    # you can read from the yml and load the data properties into this account
+    # YAML.load(content)a
+    # return a account object
+    puts @@all_accounts
+  end
 end

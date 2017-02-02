@@ -1,36 +1,37 @@
 load 'account.rb'
 
-
-
 class Interface
   attr_accessor :account
 
   def initialize
-    @account = Account.new("yao min", "509384", 2017, 500000)
+    puts "Key in your account number: "
+    account_number = gets.chomp
+    @account = load_account(account_number)
     show_menu
   end
 
   def show_menu
-    puts "to withdraw type 1, to deposit type 2, to see balance type 3, to create account type 4 to quit type q"
+    puts "Key in 1 to withdraw
+    \n 2 to deposit
+    \n 3 to check balance
+    \n 4 to create account
+    \n and q to quit."
     input = gets.chomp
-
     if input == '1'
-
+      # you would need to select account
       puts "How much would you like to withdraw?"
       amount = gets.chomp.to_i
       @account.withdraw(amount)
-
     elsif input == '2'
-
+      # before you deposit you need to select account
       puts "How much would you like to deposit?"
       amount = gets.chomp.to_i
       @account.deposit(amount)
-
     elsif input == '3'
+      # you need to select account
       @account.show_balance
     elsif input == '4'
-
-#create account
+      #create account
       puts "please enter your name"
       name = gets.chomp
       puts "enter an account number"
@@ -38,10 +39,11 @@ class Interface
       ac_creation_date = Time.now.strftime("%d/%m/%Y")
       puts "enter opening balance"
       balance = gets.chomp.to_i
-
-      create_account(name, ac_number, ac_creation_date, balance)
+      @account = Account.new(name, ac_number, ac_creation_date, balance)
+      @account.save
 
       puts "You have succesfully created an account."
+
 
     elsif input == 'q'
       "Thank you for using our system"
