@@ -6,7 +6,7 @@ class Interface
   def initialize
     puts "Key in your account number: "
     account_number = gets.chomp
-    @account = load_account(account_number)
+    @account = Account.load_account(account_number)
     show_menu
   end
 
@@ -22,11 +22,13 @@ class Interface
       puts "How much would you like to withdraw?"
       amount = gets.chomp.to_i
       @account.withdraw(amount)
+      @account.save
     elsif input == '2'
       # before you deposit you need to select account
       puts "How much would you like to deposit?"
       amount = gets.chomp.to_i
       @account.deposit(amount)
+      @account.save
     elsif input == '3'
       # you need to select account
       @account.show_balance
