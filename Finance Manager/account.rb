@@ -29,10 +29,11 @@ class Account
 
   def deposit(amount)
     @balance += amount
+    puts "You now have #{@balance} in your account"
   end
 
   def show_balance
-    puts @balance
+    puts "You now have #{@balance} in your account"
   end
 
   def save

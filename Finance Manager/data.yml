@@ -21,7 +21,7 @@
   balance: 909090
 - !ruby/object:Account
   name: Ming Lun
-  ac_number: '039248039'
+  ac_number: 039248039
   ac_creation_date: 02/02/2017
   balance: 3094720348023958
 - !ruby/object:Account
@@ -34,3 +34,8 @@
   ac_number: '120948710'
   ac_creation_date: 02/02/2017
   balance: 10289473
+- !ruby/object:Account
+  name: Ng Yao Min
+  ac_number: '235666'
+  ac_creation_date: 02/02/2017
+  balance: 6100000
