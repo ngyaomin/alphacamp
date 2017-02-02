@@ -23,7 +23,7 @@ class Account
        @balance -= amount
        puts "You have #{@balance} left in your account."
     else
-      "You do not have sufficent balance."
+        puts "You do not have sufficent balance."
     end
   end
 

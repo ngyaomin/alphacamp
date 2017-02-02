@@ -13,7 +13,7 @@
   name: sadasdasd
   ac_number: '1234'
   ac_creation_date: 02/02/2017
-  balance: 1000000
+  balance: 995000
 - !ruby/object:Account
   name: kjsdhfsjhdf
   ac_number: '123'
