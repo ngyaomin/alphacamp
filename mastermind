@@ -1,0 +1,93 @@
+<head>
+<script src="jquery-3.1.1.min.js"></script>
+</head>
+
+<p> Please open up your browser console </p>
+
+<button onclick="startGame()">by now you all should know my mind has no logic</button>
+
+<script>
+var allColors =  ["red", "blue", "green", "brown", "black", "white"];
+var answer = [];
+
+// does not freaking work in safari lol
+
+function startGame()
+{
+  answer=[];
+  var availableColors = ["red", "blue", "green", "brown", "black", "white"];
+    do {
+      var myRandomNumber = Math.floor(Math.random() * availableColors.length);
+      var myRandomColor = availableColors[myRandomNumber];
+      answer.push(myRandomColor);
+      availableColors.splice(myRandomNumber,1);
+
+    }
+    while (answer.length < 4)
+    console.log("Answer: " + answer)
+}
+
+var colorMatch = 0;
+var positionMatch = 0;
+var col1
+var col2
+var col3
+var col4
+var colorsCheck = [col1, col2, col3, col4]
+
+
+function checkGame(col1, col2, col3, col4)
+{
+  colorMatch = 0;
+  positionMatch = 0;
+
+  var skip1 = false
+  var skip2 = false
+  var skip3 = false
+  var skip4 = false
+
+  var tempAnswer = Array.from(answer);
+
+  var newArray = []
+  // not very dry.
+  if (tempAnswer[0] == col1)
+  {
+  positionMatch +=1
+  skip1 = true
+  }
+
+  if (tempAnswer[1] == col2)
+  {
+  positionMatch +=1
+  skip2 = true
+  }
+
+  if (tempAnswer[2] == col3)
+  {
+  positionMatch +=1
+  skip3 = true
+  }
+
+  if (tempAnswer[3] == col4)
+  {
+  positionMatch +=1
+  skip4 = true
+  }
+// basically what i doing is i merge the ans with the user input into
+// a new big array. then i compare this with the unqiue of that array.
+// since unique return only the non repeats, the differenes musts be the repeats
+// so by comparing the diff in length or size that is the color score.
+
+  var colorsCheck = [col1, col2, col3, col4];
+  newArray = $.merge($.unique(colorsCheck), tempAnswer);
+  console.log(newArray)
+  colorMatch = newArray.length - ($.unique(newArray)).length
+  console.log($.unique(newArray));
+
+
+  console.log("colormatch = " + (colorMatch - positionMatch) + " positionmatch = " + positionMatch )
+
+
+}
+
+</script>
